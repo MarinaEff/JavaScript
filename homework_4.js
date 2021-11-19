@@ -171,18 +171,64 @@
 //---------------- *** 16 ***
 // Сделайте функцию isEven() (even - это четный), которая параметром принимает целое число и проверяет:
 //четное оно или нет. Если четное - пусть функция возвращает true, если нечетное - false.
+//const isEven = (int) => int % 2 === 0;
+//console.log(isEven(5));
 
 //---------------- *** 17 ***
 // Дан массив с целыми числами. Создайте из него новый массив, где останутся лежать только четные
 //из этих чисел. Для этого используйте вспомогательную функцию isEven из предыдущей задачи.
+//let arrInt = [5, 7, 10, 15, 123, 18, 145];
+//function arrSort(arrInt) {
+//  let newArrInt = [];
+//  for (let i of arrInt) {
+//    if (isEven(i)) {
+//      newArrInt.push(i);
+//    }
+//  }
+//  return newArrInt;
+//}
+//console.log(arrSort(arrInt));
 
 //---------------- *** 18 ***
 // Сделайте функцию getDivisors, которая параметром принимает число и возвращает массив его делителей
 //(чисел, на которое делится данное число без остатка).
+//function getDivisors(num) {
+//  let arr = [];
+//  for (let i = 1; i < num; i++) {
+//    if (num % i === 0) {
+//      arr.push(i);
+//    }
+//  }
+//  return arr;
+//}
+//console.log(getDivisors(10));
 
 //---------------- *** 19 ***
 // Дан массив с числами. Выведите последовательно его элементы используя рекурсию и не используя цикл.
+//let arr = [5, 7, 10, 1, 13];
+//function outputArr(arr) {
+//  if (arr.length > 0) {
+//    console.log(arr.shift());
+//    outputArr(arr);
+//  }
+//}
+//outputArr(arr);
 
 //---------------- *** 20 ***
 // Дано число. Сложите его цифры. Если сумма получилась более 9-ти, опять сложите его цифры. И так,
 //пока сумма не станет однозначным числом (9 и менее).
+let digit = 555555;
+function getDigitsSum(digit) {
+  let sum = 0;
+  let arrDigit = String(digit).split("");
+  //console.log(arrDigit); //для проверки адекватности логики))
+  for (let i of arrDigit) {
+    sum = sum + +i;
+    //console.log(sum); //для проверки адекватности логики))
+  }
+  if (sum > 9) {
+    return getDigitsSum(sum);
+  }
+  return sum;
+}
+console.log(getDigitsSum(digit));
